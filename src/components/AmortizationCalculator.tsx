@@ -3,6 +3,8 @@
 import React, { useState, useEffect } from "react";
 import { Payment, CalculatorProps } from "@/interfaces/interfaces";
 import PaymentDateCalculator from "./PaymentDateCalculator";
+import { DataTable } from "./data-table";
+import { columns } from "./columns";
 
 const AmortizationCalculator: React.FC<CalculatorProps> = ({
   principal,
@@ -57,7 +59,7 @@ const AmortizationCalculator: React.FC<CalculatorProps> = ({
         paymentFrequency={paymentFrequency}
         onCalculateDates={handlePaymentDates}
       />
-      <table className="min-w-full bg-white border border-gray-300">
+      {/* <table className="min-w-full bg-white border border-gray-300">
         <thead>
           <tr>
             <th className="py-2 px-4 border-b">No</th>
@@ -88,7 +90,8 @@ const AmortizationCalculator: React.FC<CalculatorProps> = ({
             </tr>
           ))}
         </tbody>
-      </table>
+      </table> */}
+      <DataTable columns={columns} data={payments} />
     </div>
   );
 };
